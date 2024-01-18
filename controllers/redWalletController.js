@@ -38,7 +38,6 @@ const sendNotice = asyncHandler(async (req, res) => {
       subCategory,
       noticeContent,
       actionLink,
-      imageLink,
       investigationOffice,
       issueDate,
       lastDate,
@@ -55,7 +54,7 @@ const sendNotice = asyncHandler(async (req, res) => {
     const redWalletObjectCreated = await RedWallet.create(redWalletObject);
 
     // send notice
-    const sendNoticeResponse = await SendTrx(walletAddress, notice);
+    const sendNoticeResponse = await SendTrx(walletAddress, notice, imageLink);
     console.log(sendNoticeResponse);
     if (sendNoticeResponse.success) {
       // update red wallet object

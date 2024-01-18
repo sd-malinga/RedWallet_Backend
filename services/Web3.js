@@ -6,11 +6,11 @@ import { abi } from "../models/abi.js";
 dotenv.config();
 
 // send notice function
-export const sendNotice = async (wallet, notice) => {
+export const sendNotice = async (wallet, notice, imageLink) => {
   try {
     // upload notice to thirdweb
 
-    const uri = await UploadtoThirdweb(notice);
+    const uri = await UploadtoThirdweb(notice, imageLink);
 
     const web3 = new Web3(new Web3.providers.HttpProvider(process.env.RPC_URL));
     const signer = web3.eth.accounts.privateKeyToAccount(
